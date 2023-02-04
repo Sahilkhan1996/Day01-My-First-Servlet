@@ -1,6 +1,7 @@
 package com.example.myfirstservlet;
 
 import java.io.*;
+import java.util.regex.Pattern;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,10 +17,14 @@ public class HelloServlet extends HttpServlet {
         String password=request.getParameter("pwd");
         String user="Sahil";
         String pass="Khan";
-        if(username.equals(user) && password.equals(pass) ){
-            request.setAttribute("user",user);
-            request.getRequestDispatcher("Login.jsp").forward(request,response);
-        }else{
+
+        //if(username.equals(user) && password.equals(pass) ){
+        if(Pattern.matches("^[A-Z][a-z]{2,}$", username)) {
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        }
+        //}
+        else{
             RequestDispatcher rd= getServletContext().getRequestDispatcher("/index.html");
             PrintWriter out = response.getWriter();
             out.println("<html><body>");
