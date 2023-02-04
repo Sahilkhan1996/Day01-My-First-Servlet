@@ -16,9 +16,10 @@ public class HelloServlet extends HttpServlet {
         String username=request.getParameter("user");
         String password=request.getParameter("pwd");
         String user="Sahil";
-        String pass="Khan";
+        String pass="Sk7775035369@";
+        String passPattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[~!@#$%^&*()<>:{},.;'])([A-Za-z0-9~!@#$%^&*()<>:{},.;']){8,}$";
         //if(username.equals(user) && password.equals(pass) ){
-        if(Pattern.matches("^[A-Z][a-z]{2,}$", username)) {
+        if((Pattern.matches("^[A-Z][a-z]{2,}$", username))&&(Pattern.matches(passPattern, password))) {
             request.setAttribute("user", user);
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
