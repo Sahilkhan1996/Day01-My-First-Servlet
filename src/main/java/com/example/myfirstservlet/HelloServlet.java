@@ -16,6 +16,7 @@ public class HelloServlet extends HttpServlet {
         String username=request.getParameter("user");
         String password=request.getParameter("pwd");
         String user="Sahil";
+
         String pass="Sk7775035369@";
         String passPattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[~!@#$%^&*()<>:{},.;'])([A-Za-z0-9~!@#$%^&*()<>:{},.;']){8,}$";
         //if(username.equals(user) && password.equals(pass) ){
